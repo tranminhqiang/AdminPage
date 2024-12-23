@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Admin.Site" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><asp:ContentPlaceHolder ID="PageTitle" runat="server" /></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="stylemaster.css" rel="stylesheet" />
+
+   <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    header {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+        margin: 0;
+        font-size: 1.8em;
+    }
+    nav {
+        background-color: #333;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+        color: white;
+        margin-right: 15px;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #4CAF50;
+    }
+    .sidebar {
+        width: 250px;
+        background-color: #444;
+        color: white;
+        position: fixed;
+        top: 80px; /* Adjust based on header height */
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar li {
+        margin: 10px 0;
+    }
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        display: block;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .sidebar a:hover {
+        background-color: #4CAF50;
+        transform: translateX(5px);
+    }
+    .content {
+        padding: 20px;
+    }
+    .content h2 {
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+    .content p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #4CAF50;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+</head>
+<body>
+    <form runat="server">
+        <header>
+            <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+                <h1>Flower Shop Admin</h1>
+            </asp:ContentPlaceHolder>
+        </header>
+        
+        <div class="sidebar">
+            <asp:ContentPlaceHolder ID="SidebarContent" runat="server">
+                <ul>
+                    <li><a href="Dashboard.aspx">Dashboard</a></li>
+                    <li><a href="CategoryManager.aspx">Categories</a></li>
+                    <li><a href="ProductManager.aspx">Products</a></li>
+                    <li><a href="OrderManager.aspx">Orders</a></li>
+                    <li><a href="SalesReport.aspx">Sales Report</a></li>
+                </ul>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+    </form>
+</body>
+</html>
